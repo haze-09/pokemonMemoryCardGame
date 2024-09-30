@@ -27,7 +27,7 @@ function App() {
   return (
     <>
       <header>
-        <img src={pokeMemoryImg} alt="Poke-Memory" />
+        <img src={pokeMemoryImg} alt="Poke-Memory" className="glass pixel-corners" />
       </header>
       <dialog id="difficulty">
         <h2>Choose Difficulty: </h2>

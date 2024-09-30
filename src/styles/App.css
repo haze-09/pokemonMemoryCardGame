@@ -16,6 +16,7 @@ header > img {
   max-width: 100%;
   object-fit: contain;
   border: 2px solid;
+  padding: 0.7rem;
   background: rgba(44, 44, 44, 0.7);
 }
 

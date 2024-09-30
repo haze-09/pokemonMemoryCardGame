@@ -40,10 +40,12 @@ function App() {
 
       <dialog id="difficulty">
         <h2>Choose Difficulty: </h2>
-        <button onClick={closeDifficultyModal}>X</button>
-        <button onClick={() => selectDifficulty(5)}>Easy</button>
-        <button onClick={() => selectDifficulty(10)}>Medium</button>
-        <button onClick={() => selectDifficulty(15)}>Hard</button>
+        <button onClick={closeDifficultyModal}>x</button>
+        <div>
+          <button className="easy" onClick={() => selectDifficulty(5)}>Easy</button>
+          <button className="medium" onClick={() => selectDifficulty(10)}>Medium</button>
+          <button className="hard" onClick={() => selectDifficulty(15)}>Hard</button>
+        </div>
       </dialog>
     </>
   );

@@ -1,11 +1,13 @@
 import pokeCardImg from "./assets/card.png";
-import "./styles/cards.css"
+import "./styles/cards.css";
 
-function flipAllCards(){
-    let cards = document.querySelectorAll(".card");
-    cards.forEach((card)=>card.classList.add("flipped"));
+function flipAllCards() {
+  let cards = document.querySelectorAll(".card");
+  cards.forEach((card) => card.classList.add("flipped"));
+  setTimeout(() => {
+    cards.forEach((card) => card.classList.remove("flipped"));
+  }, 700);
 }
-
 
 function Card({ name, sprite }) {
   return (

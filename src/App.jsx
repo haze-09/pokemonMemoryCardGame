@@ -6,7 +6,6 @@ import Game from "./game";
 
 function App() {
   const [data, setData] = useState(null);
-  const [gameStarted, setGameStarted] = useState(false);
 
   const openDifficultyModal = () => {
     const dialog = document.querySelector("#difficulty");
@@ -29,11 +28,13 @@ function App() {
   }, []);
 
   const selectDifficulty = async (noOfIDs) => {
-    let pokeData = await fetchPokeData(noOfIDs);
-    setData(pokeData);
-    setGameStarted(true);
     closeDifficultyModal();
+
+    let pokeData = await fetchPokeData(noOfIDs);
+    setData(pokeData);  
   };
+
+  console.log("Rendering App, current data:", data);
 
   return (
     <>
@@ -47,7 +48,7 @@ function App() {
       <button id="newGame" onClick={openDifficultyModal}>
         New Game
       </button>
-      {gameStarted && <Game data={data} />}
+      {data && <Game data={data} />}
 
       <dialog id="difficulty">
         <h2>Choose Difficulty: </h2>

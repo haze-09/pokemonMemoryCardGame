@@ -1,12 +1,7 @@
 import Cards from "./cards";
 
 function Game({data}) {
-
-  console.log(data);
-
-  return <>
-  <Cards />
-  </>;
+  return <Cards data={data} />;
 }
 
 export default Game;

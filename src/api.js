@@ -19,13 +19,13 @@ function idListBuilder(noOfIDs) {
 
 async function fetchPokeData(noOfIDs) {
   let idList = idListBuilder(noOfIDs);
-  let pokeData = [];
-
-  idList.forEach(async (id) => {
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
-    const data = await response.json();
-    pokeData.push({ name: data.name, sprite: data.sprites.front_default });
-  });
+  let pokeData = await Promise.all(
+    idList.map(async (id) => {
+      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+      const data = await response.json();
+      return { name: data.name, sprite: data.sprites.front_default };
+    })
+  );
 
   return pokeData;
 }

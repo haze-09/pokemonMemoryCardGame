@@ -3,7 +3,6 @@ import "./styles/cards.css"
 
 function flipAllCards(){
     let cards = document.querySelectorAll(".card");
-
     cards.forEach((card)=>card.classList.add("flipped"));
 }
 

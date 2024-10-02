@@ -4,7 +4,7 @@
   justify-items: center;
   align-items: center;
   gap: 2rem;
-  height: 60vh;
+  height: 50vh;
   overflow-x: hidden;
   overflow-y: scroll;
   perspective: 1000px;
@@ -51,10 +51,10 @@
     width: 250px;
 }
 
-@media (max-width:768px) {
+@media (max-width:1024px) {
     .cards-container {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        height: 55vh;
+        height: 45vh;
         gap: 1rem;
     }
 

@@ -10,7 +10,7 @@ function Game({ data, gameData, setGameData, shuffle }) {
           best: { ...gameData.best, [gameData.mode]: gameData.clicked.length },
           win: false,
         });
-      }else{
+      } else {
         setGameData({
           ...gameData,
           win: false,
@@ -39,7 +39,6 @@ function Game({ data, gameData, setGameData, shuffle }) {
   return (
     <div className="game">
       <div id="score">
-        {console.log("best:" + gameData.best)}
         <div>
           <h1>Score: </h1>
           <p>{gameData.clicked.length}</p>
@@ -53,8 +52,11 @@ function Game({ data, gameData, setGameData, shuffle }) {
           <p>{gameData.mode}</p>
         </div>
       </div>
-      {gameData.win && <p>You won </p>}
-      {gameData.win === false && <p>You lost. Try again.</p>}
+      <div className="message">
+        {gameData.win && <p className="green">You won!!! </p>}
+        {gameData.win === false && <p className="red">You lost. Try again.</p>}
+      </div>
+
       {gameData.win === null && (
         <Cards data={data} shuffle={shuffle} addClicked={addClicked} />
       )}

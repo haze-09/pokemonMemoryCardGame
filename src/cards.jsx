@@ -1,22 +1,27 @@
 import pokeCardImg from "./assets/card.png";
 import "./styles/cards.css";
 
-function flipAllCards(shuffle) {
+function flipAllCards(name, addClicked, shuffle) {
   let cards = document.querySelectorAll(".card");
   cards.forEach((card) => card.classList.add("flipped"));
   
-  setTimeout(()=>{
+  addClicked(name);
+
+  setTimeout(() => {
     shuffle();
-  },500)
- 
+  }, 500);
+
   setTimeout(() => {
     cards.forEach((card) => card.classList.remove("flipped"));
   }, 700);
 }
 
-function Card({ name, sprite,shuffle }) {
+function Card({ name, sprite, shuffle, addClicked }) {
   return (
-    <div className="card" onClick={()=>flipAllCards(shuffle)}>
+    <div
+      className="card"
+      onClick={() => flipAllCards(name, addClicked, shuffle)}
+    >
       <div className="front">
         <img src={sprite} alt={`An Image of ${name}`} />
         <p>{name}</p>
@@ -28,12 +33,17 @@ function Card({ name, sprite,shuffle }) {
   );
 }
 
-function Cards({ data, shuffle }) {
-
+function Cards({ data, shuffle, addClicked }) {
   return (
     <div className="cards-container">
       {data.map((pokemon) => (
-        <Card key={pokemon.name} name={pokemon.name} sprite={pokemon.sprite} shuffle={shuffle} />
+        <Card
+          key={pokemon.name}
+          name={pokemon.name}
+          sprite={pokemon.sprite}
+          shuffle={shuffle}
+          addClicked={addClicked}
+        />
       ))}
     </div>
   );

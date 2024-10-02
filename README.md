@@ -1,2 +1,2 @@
 # pokemonMemoryCardGame
-A Pokemon memory card game built with React, Vite and PokeAPI.
+A fully responsive Pokemon memory card game built with React, Vite and PokeAPI.

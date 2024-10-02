@@ -113,6 +113,38 @@ button {
   border: 5px solid black;
 }
 
+#loading{
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  gap: 2rem;
+}
+
+#loading>img{
+  width: 10vw;
+  animation: rotating 1.2s linear infinite;
+}
+
+#loading>p{
+  padding: 1rem;
+  font-size: 2rem;
+  font-weight: 800;
+  backdrop-filter: blur(20px);
+  background: rgba(245, 245, 245, 0.7);
+  border: 5px solid black;
+}
+
+@keyframes rotating {
+  0%{
+    transform: rotate(0deg);
+
+  }
+  100%{
+    transform: rotate(360deg);
+  }  
+}
+
 @keyframes backdropBlurIn {
   0% {
     backdrop-filter: blur(0px);

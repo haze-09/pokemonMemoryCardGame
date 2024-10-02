@@ -4,18 +4,35 @@ import "./styles/game.css";
 function Game({ data, gameData, setGameData, shuffle }) {
   function addClicked(name) {
     if (gameData.clicked.includes(name)) {
-      setGameData({
-        ...gameData,
-        best: { ...gameData.best, [gameData.mode]: gameData.clicked.length },
-        win: false,
-      });
+      if (gameData.clicked.length > gameData.best[gameData.mode]) {
+        setGameData({
+          ...gameData,
+          best: { ...gameData.best, [gameData.mode]: gameData.clicked.length },
+          win: false,
+        });
+      }else{
+        setGameData({
+          ...gameData,
+          win: false,
+        });
+      }
     } else {
-      const newWin = gameData.clicked.length === data.length;
-      setGameData({
-        ...gameData,
-        clicked: [...gameData.clicked, name],
-        win: newWin,
-      });
+      if (gameData.clicked.length === data.length - 1) {
+        setGameData({
+          ...gameData,
+          clicked: [...gameData.clicked, name],
+          best: {
+            ...gameData.best,
+            [gameData.mode]: gameData.clicked.length + 1,
+          },
+          win: true,
+        });
+      } else {
+        setGameData({
+          ...gameData,
+          clicked: [...gameData.clicked, name],
+        });
+      }
     }
   }
 
@@ -36,7 +53,11 @@ function Game({ data, gameData, setGameData, shuffle }) {
           <p>{gameData.mode}</p>
         </div>
       </div>
-      <Cards data={data} shuffle={shuffle} addClicked={addClicked} />
+      {gameData.win && <p>You won </p>}
+      {gameData.win === false && <p>You lost. Try again.</p>}
+      {gameData.win === null && (
+        <Cards data={data} shuffle={shuffle} addClicked={addClicked} />
+      )}
     </div>
   );
 }

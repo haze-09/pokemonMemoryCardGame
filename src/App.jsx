@@ -1,7 +1,7 @@
 import "./styles/App.css";
 import pokeMemoryImg from "./assets/Poke-Memory.png";
 import loadingImg from "./assets/loading.png";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { fetchPokeData } from "./api";
 import Game from "./game";
 
@@ -71,7 +71,10 @@ function App() {
         New Game
       </button>
       {loading ? (
-        <div id="loading">Loading...</div>
+        <div id="loading">
+          <img src={loadingImg} alt="Pokeball spinning" />
+          <p>loading...</p>
+        </div>
       ) : data ? (
         <Game
           data={data}

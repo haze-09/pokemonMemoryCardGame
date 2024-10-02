@@ -2,6 +2,7 @@
     margin: 1rem;
     display: flex;
     justify-content: center;
+    gap: 1rem;
 }
 
 h1{
@@ -10,7 +11,12 @@ h1{
 }
 
 #score>div{
+    display: flex;
     background: rgba(245, 245, 245,0.7);
     backdrop-filter: blur(20px);
     border: 5px solid black;
+}
+
+p{
+    margin: 0;
 }

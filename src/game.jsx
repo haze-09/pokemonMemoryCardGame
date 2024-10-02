@@ -1,7 +1,8 @@
 import Cards from "./cards";
 import "./styles/game.css";
 
-function Game({ data }) {
+function Game({ data, mode, shuffle }) {
+
   return (
     <div className="game">
       <div id="score">
@@ -12,10 +13,11 @@ function Game({ data }) {
           <h1>Best: </h1>
         </div>
         <div>
-          <h1>mode: </h1>
+          <h1>Mode: </h1>
+          <p>{mode}</p>
         </div>
       </div>
-      <Cards data={data} />
+      <Cards data={data} shuffle={shuffle} />
     </div>
   );
 }

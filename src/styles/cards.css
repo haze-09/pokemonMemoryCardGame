@@ -15,6 +15,7 @@
   position: relative;
   transition: transform 0.6s;
   transform-style: preserve-3d;
+  cursor: pointer;
 }
 
 .card.flipped {
@@ -43,6 +44,10 @@
   justify-content: center;
   backface-visibility: hidden;
   transform: rotateY(180deg);
+}
+
+.back>img{
+    width: 250px;
 }
 
 @media (max-width:768px) {
